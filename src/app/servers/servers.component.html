@@ -1,3 +1,37 @@
-<button class="btn btn-primary" [disabled] = "!allowBtn" (click)="onCreateServer()">Create Server</button>
 
-<p>{{ 'Server' }} with id {{ serverId }} is {{ serverStatus}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-2"> <!-- Bootstrap classes can be modified as desired -->
+            <input type="text" (input)="onChangeText($event)"  />
+        </div>
+        <div class="col-12 col-md-10"> <!-- Bootstrap classes can be modified as desired -->
+            <button class="btn btn-primary" [disabled] = "!allowBtn" (click)="onCreateServer()">Create Server</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-12"> <!-- Bootstrap classes can be modified as desired -->
+            <p>{{inputText}}</p>
+        </div>
+    </div>
+    <div class="row" *ngIf = "serverCreated else serverNotCreated">
+        <div class="col-12 col-md-12"> <!-- Bootstrap classes can be modified as desired -->
+            <p>{{ 'Server' }} with id {{ serverId }} is {{ serverStatus}}</p>
+        </div>
+    </div>
+    <ng-template #serverNotCreated>
+        <div class="row" >
+            <div class="col-12 col-md-12"> <!-- Bootstrap classes can be modified as desired -->
+                <p>Server not created</p>
+            </div>
+        </div>
+    </ng-template>
+    
+</div>
+
+
+
+
+
+
+
+
